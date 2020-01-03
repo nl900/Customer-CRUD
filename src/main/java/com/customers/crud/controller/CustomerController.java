@@ -4,7 +4,6 @@ import com.customers.crud.model.Customer;
 import com.customers.crud.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
