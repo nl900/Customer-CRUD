@@ -29,6 +29,14 @@ public class Customer {
     @NotBlank
     private String phone;
 
+    private Customer() {}
+
+    public Customer(String name, String address, String phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
     public Long getId() {
         return id;
     }
