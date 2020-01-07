@@ -32,14 +32,9 @@ public class CustomerController {
         return customerRepository.findById(customerId);
     }
 
-    @GetMapping("/customers/{id}")
-    public Customer getNoteById(@PathVariable(value = "id") Long customerId) {
-        return customerRepository.findById(customerId)
-                .orElseThrow(() -> new IllegalArgumentException(Long.toString(customerId)));
-    }
 
     @PutMapping("/customers/{id}")
-    public Customer updateNote(@PathVariable(value = "id") Long customerId,
+    public Customer updateCustomer(@PathVariable(value = "id") Long customerId,
                            @Valid @RequestBody Customer customerDetails) {
 
         Customer customer = customerRepository.findById(customerId)
@@ -54,7 +49,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/customers/{id}")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long customerId) {
+    public ResponseEntity<?> deleteCustomer(@PathVariable(value = "id") Long customerId) {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new IllegalArgumentException(Long.toString(customerId)));
 
