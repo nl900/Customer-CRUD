@@ -39,9 +39,14 @@ public class CustomerController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+//    @PutMapping("/customers/{id}")
+//    ResponseEntity<Customer> updateGroup(@Valid @RequestBody Customer customer) {
+//        Customer result = customerRepository.save(customer);
+//        return ResponseEntity.ok().body(result);
+//    }
 
     @PutMapping("/customers/{id}")
-    public ResponseEntity<Customer>  updateCustomer(@PathVariable(value = "id") Long customerId,
+    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "id") Long customerId,
                            @Valid @RequestBody Customer customerDetails) {
 
         Customer customer = customerRepository.findById(customerId)
