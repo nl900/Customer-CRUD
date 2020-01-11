@@ -22,7 +22,7 @@ class CustomerEdit extends Component {
 
   async componentDidMount() {
     if (this.props.match.params.id !== 'new') {
-      const customer = await (await fetch(`/api/customers/${this.props.match.params.id}`)).json();
+      const customer = await (await fetch(`/customers/${this.props.match.params.id}`)).json();
       this.setState({item: customer});
     }
   }
@@ -40,7 +40,7 @@ class CustomerEdit extends Component {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/customers', {
+    await fetch('/customers', {
       method: (item.id) ? 'PUT' : 'POST',
       headers: {
         'Accept': 'application/json',
