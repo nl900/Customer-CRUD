@@ -4,9 +4,12 @@ import com.customers.crud.model.Customer;
 import com.customers.crud.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
@@ -23,18 +26,22 @@ public class CustomerController {
     }
 
     @PostMapping("/customers")
-    public Customer createCustomer(@Valid @RequestBody Customer customer) {
-        return customerRepository.save(customer);
+    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer) throws URISyntaxException {
+        Customer result = customerRepository.save(customer);
+        return ResponseEntity.created(new URI("/customers/" + result.getId()))
+                .body(result);
     }
 
     @GetMapping("/customers/{id}")
-    public Optional<Customer> getCustomerById(@PathVariable(value = "id") Long customerId) throws ChangeSetPersister.NotFoundException {
-        return customerRepository.findById(customerId);
+    public ResponseEntity<?> getCustomerById(@PathVariable(value = "id") Long customerId) {
+        Optional<Customer> result = customerRepository.findById(customerId);
+        return result.map(response -> ResponseEntity.ok().body(response))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
 
     @PutMapping("/customers/{id}")
-    public Customer updateCustomer(@PathVariable(value = "id") Long customerId,
+    public ResponseEntity<Customer>  updateCustomer(@PathVariable(value = "id") Long customerId,
                            @Valid @RequestBody Customer customerDetails) {
 
         Customer customer = customerRepository.findById(customerId)
@@ -45,7 +52,7 @@ public class CustomerController {
         customer.setPhone(customerDetails.getPhone());
 
         Customer updatedCustomer = customerRepository.save(customer);
-        return updatedCustomer;
+        return ResponseEntity.ok().body(updatedCustomer);
     }
 
     @DeleteMapping("/customers/{id}")
