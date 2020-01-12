@@ -16,3 +16,5 @@ To run the client, in reactjs directory run
 > npm start
 
 Navigatae to localhost:3000
+
+![](mockup/Home.png)
