@@ -14,3 +14,5 @@ To run the server, in Spring directory run
 
 To run the client, in reactjs directory run
 > npm start
+
+Navigatae to localhost:3000
