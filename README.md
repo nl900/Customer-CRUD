@@ -15,7 +15,7 @@ To run the server, in Spring directory run
 To run the client, in reactjs directory run
 > npm start
 
-Navigatae to localhost:3000
+Navigate to localhost:3000
 Should see
 
 <img src="mockup/Home.png" width ="500">
