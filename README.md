@@ -2,11 +2,11 @@
 **Spring Boot API with ReactJS UI**</br>
 A Spring RESTful web service that CRUD data via ReactJS UI.
 
-*Requirements*</br>
+##Requirements</br>
 Java</br>
 Node.js
 
-*Getting Started* </br>
+##Getting Started </br>
 After cloning this repo,
 
 To run the server, in Spring directory run
