@@ -21,5 +21,6 @@ Should see
 <img src="mockup/Home.png" width ="500">
 
 Clicking on the link
+
 <img src="mockup/Customer%20List.png" width ="500">
 
