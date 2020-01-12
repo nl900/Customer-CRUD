@@ -17,4 +17,4 @@ To run the client, in reactjs directory run
 
 Navigatae to localhost:3000
 
-<img src="mockup/Home.png" width ="100">
+<img src="mockup/Home.png" width ="500">
