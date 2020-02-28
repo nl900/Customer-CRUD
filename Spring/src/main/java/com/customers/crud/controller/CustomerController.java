@@ -52,7 +52,6 @@ public class CustomerController {
         customer.setPhone(customerDetails.getPhone());
 
         Customer updatedCustomer = customerRepository.save(customer);
-        System.out.println("customer updated");
         return ResponseEntity.ok().body(updatedCustomer);
     }
 
