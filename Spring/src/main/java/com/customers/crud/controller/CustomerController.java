@@ -38,12 +38,7 @@ public class CustomerController {
         return result.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-//    @PutMapping("/customers/{id}")
-//    ResponseEntity<Customer> updateGroup(@Valid @RequestBody Customer customer) {
-//        Customer result = customerRepository.save(customer);
-//        return ResponseEntity.ok().body(result);
-//    }
+    
 
     @PutMapping("/customers/{id}")
     public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "id") Long customerId,
@@ -57,6 +52,7 @@ public class CustomerController {
         customer.setPhone(customerDetails.getPhone());
 
         Customer updatedCustomer = customerRepository.save(customer);
+        System.out.println("customer updated");
         return ResponseEntity.ok().body(updatedCustomer);
     }
 
