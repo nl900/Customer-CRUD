@@ -10,7 +10,9 @@ Node.js
 After cloning this repo,
 
 To run the server, in Spring directory run
+```shell
 > ./mvnw spring-boot:run
+```
 
 To run the client, in reactjs directory run
 > npm start
